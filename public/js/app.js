@@ -4,23 +4,26 @@
 
 var app = angular.module('emir' , []);
 
-app.factory('Data1' , function() {
-    return {};
+app.factory('Data' , function() {
+    return { korisnici : "" };
 })
 
-app.controller('Korisnici' , function($scope , $http , Data1) {
+app.controller('Korisnici' , function($scope , $http , Data) {
     //$scope.korisnici = users;
     $http.get('api/korisnici').success(function(data) {
-        Data1 = data;
-        $scope.korisnici = Data1;
+        $scope.korisnici = data;
         //console.log($scope.korisnici);
-        console.log(Data1);
     });
+
+    $scope.izbrisi = function(id) {
+        $scope.izbrisi_text = id;
+    }
+
 });
 
-app.controller('registracija' , function($scope, $http , Data1) {
+app.controller('registracija' , function($scope, $http , Data ) {
     $scope.registruj = function() {
         $http({ method: "POST", url: "api/registruj", data: $scope.user });
-        Data1 = $scope.user;
+        $scope.korisnici = $scope.user;
     }
 });

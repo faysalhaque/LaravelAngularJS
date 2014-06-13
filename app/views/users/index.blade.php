@@ -11,6 +11,7 @@
                 <th> ID </th>
                 <th> Ime </th>
                 <th> Prezim </th>
+                <th> Izbriši </th>
             </tr>
         </thead>
 
@@ -19,10 +20,11 @@
                 <td> @{{ korisnik.id }} </td>
                 <td> @{{ korisnik.first_name }} </td>
                 <td> @{{ korisnik.last_name }} </td>
+                <td> <button ng-click="izbrisi(\@{{korisnik.id}})" > Izbriši </button> </td>
             </tr>
         </tbody>
     </table>
-
+    @{{ izbrisi_text }}
 </div>
 
     <div ng-controller="registracija" >
