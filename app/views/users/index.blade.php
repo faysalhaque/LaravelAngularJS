@@ -25,6 +25,31 @@
 
 </div>
 
+    <div ng-controller="registracija" >
+        <form novalidate>
+        {{ Form::label('email') }}
+        <br/>
+        <input type="text" ng-model="user.email" />
+        <br/>
+        {{ Form::label('first_name') }}
+        <br/>
+        <input type="text" ng-model="user.first_name" />
+        <br/>
+            {{ Form::label('last_name') }}
+            <br/>
+            <input type="text" ng-model="user.last_name" />
+            <br/>
+        {{ Form::label('password') }}
+        <br/>
+        <input type="text" ng-model="user.password" />
+        <br/>
+            <button ng-click="registruj()" > Registruj </button>
+        </form>
+        @{{ user }}
+
+        @{{ svi }}
+    </div>
+
 </div>
 
 @stop

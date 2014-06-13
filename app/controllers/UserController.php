@@ -87,4 +87,17 @@ class UserController extends \BaseController {
         return User::all();
     }
 
+    public function registruj() {
+
+        $user = new User;
+        $user->email = Input::get('email');
+        $user->first_name = Input::get('first_name');
+        $user->last_name = Input::get('last_name');
+        $user->password = Input::get('password');
+        $user->save();
+
+        return Response::json(array('success' => true));
+
+    }
+
 }

@@ -19,3 +19,4 @@ Route::get('/', function()
 Route::resource('users' , 'UserController');
 
 Route::get('api/korisnici' , 'UserController@all');
+Route::post('api/registruj' , 'UserController@registruj');
